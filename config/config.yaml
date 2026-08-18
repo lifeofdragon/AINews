@@ -113,7 +113,7 @@ rss:
   freshness_filter:
     enabled: true                     # 是否启用新鲜度过滤（true=启用, false=关闭）
 
-    max_age_days: 1                   # 最大文章年龄（天）
+    max_age_days: 3                   # 最大文章年龄（天）
                                       # - 正整数：只推送 N 天内的文章
                                       # - 0：禁用过滤，推送所有文章
 
@@ -122,9 +122,6 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
-    - id: "hacker-news"
-      name: "Hacker News"
-      url: "https://hnrss.org/frontpage"
 
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
@@ -132,9 +129,100 @@ rss:
       enabled: false                  # 禁用
       # max_age_days: 3               # 示例：推送 3 天内的文章（更新较慢的博客）
      
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
+    - id: "openai"
+      name: "OpenAI News"
+      url: "https://openai.com/news/rss.xml"
+    
+    - id: "deepmind"
+      name: "Google DeepMind"
+      url: "https://deepmind.google/blog/rss.xml"
+
+    - id: "huggingface"
+      name: "Hugging Face"
+      url: "https://huggingface.co/blog/feed.xml"
+
+    - id: "nvidia-developer"
+      name: "NVIDIA Developer"
+      url: "https://developer.nvidia.com/blog/feed"
+
+    - id: "github-blog"
+      name: "GitHub Blog"
+      url: "https://github.blog/feed/"
+
+
+    # ===== AI 研究 =====
+
+    - id: "arxiv-ai"
+      name: "arXiv AI"
+      url: "https://rss.arxiv.org/rss/cs.AI"
+
+    # ===== 游戏 / 游戏开发 =====
+    - id: "unreal-engine"
+      name: "Unreal Engine"
+      url: "https://www.unrealengine.com/rss"
+
+    - id: "game-developer"
+      name: "Game Developer"
+      url: "https://www.gamedeveloper.com/rss.xml"
+
+    - id: "gamesindustry"
+      name: "GamesIndustry.biz"
+      url: "https://www.gamesindustry.biz/feed"
+
+    - id: "level-design-lobby"
+      name: "Level Design Lobby"
+      url: "https://leveldesignlobby.libsyn.com/rss"
+
+    - id: "80-level"
+      name: "80 Level"
+      url: "https://80.lv/feed"
+
+    - id: "critical-distance"
+      name: "Critical Distance"
+      url: "https://www.critical-distance.com/feed/"
+
+    - id: "reddit-leveldesign"
+      name: "Reddit - Level Design"
+      url: "https://www.reddit.com/r/leveldesign/.rss"
+
+    - id: "reddit-gamedesign"
+      name: "Reddit - Game Design"
+      url: "https://www.reddit.com/r/gamedesign/.rss"
+
+    - id: "game-world-observer"
+      name: "Game World Observer"
+      url: "https://gameworldobserver.com/feed"
+
+    - id: "game-discover-co"
+      name: "GameDiscoverCo"
+      url: "https://newsletter.gamediscover.co/feed"
+
+    - id: "pc-gamer"
+      name: "PC Gamer"
+      url: "https://www.pcgamer.com/rss/"
+
+    - id: "eurogamer"
+      name: "Eurogamer"
+      url: "https://www.eurogamer.net/feed"
+
+    - id: "gamespot"
+      name: "GameSpot"
+      url: "https://www.gamespot.com/feeds/mashup/"
+
+    - id: "gcores"
+      name: "机核 Gcores"
+      url: "https://www.gcores.com/rss"
+
+    # ===== 国际 =====
+    - id: "guardian-world"
+      name: "The Guardian World"
+      url: "https://www.theguardian.com/world/rss"
+
+    # ===== 中国政务 / 经济数据 =====
+    - id: "china-stats"
+      name: "国家统计局 - 最新发布"
+      url: "https://www.stats.gov.cn/sj/zxfb/rss.xml"
+      max_age_days: 7
 
     # 自定义源示例
     # - id: "custom-feed"
