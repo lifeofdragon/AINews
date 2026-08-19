@@ -477,10 +477,9 @@ ai:
                                     # 示例: ["openai/gpt-4o-mini", "openai/deepseek-ai/DeepSeek-V3"]
 
   # 额外参数（一般无需修改，删掉 # 号即可启用）
-  # extra_params:
-  #   top_p: 1.0
-  #   presence_penalty: 0.0
-  #   stop: ["END"]
+   extra_params:
+     thinking:
+      type: "disabled"
 
 
 # ===============================================================
