@@ -6,13 +6,17 @@
 # 当 AI 智能过滤不可用时，自动回退到本文件进行关键词筛选。
 #
 # 关注优先级：
-# AI > 游戏设计/关卡设计 > 游戏行业/玩家社区
+# AI > 游戏设计 / 关卡设计 > 游戏行业 / 玩家社区
 # > 国际事务 > 中国政务 > 科技产业 > 宏观经济
 #
 # 设计原则：
-# 1. 保底规则优先避免漏掉重要内容，而不是追求极致精准。
-# 2. 尽量使用专有名词和明确短语，减少“游戏”“科技”等宽泛单词。
-# 3. 全局过滤仅用于明显低价值内容，避免误杀真正的重要负面新闻。
+# 1. 作为 AI 过滤失效时的保底方案，优先避免漏掉重要内容。
+# 2. 尽量使用明确主题词、专业词和专有名词。
+# 3. 避免大量使用过宽泛关键词，以降低无关信息。
+# 4. 不将“负面”本身作为过滤条件。
+# 5. 全局过滤仅处理明显低价值的娱乐、营销和猎奇噪音。
+# 6. 每个关键词组使用 [组别名] 作为最终显示标题。
+# 7. @数字表示该组最多展示的内容数量。
 # ===============================================================
 
 
@@ -41,7 +45,10 @@
 # 1. AI / 人工智能
 # ===============================================================
 
-/(?<![a-zA-Z])ai(?![a-zA-Z])/ => AI｜人工智能
+
+[AI｜人工智能]
+
+/(?<![a-zA-Z])ai(?![a-zA-Z])/
 人工智能
 生成式AI
 生成式人工智能
@@ -99,39 +106,90 @@ Windsurf
 @30
 
 
-# ---------------------------------------------------------------
-# AI Agent / AI 应用与工具
-# ---------------------------------------------------------------
+[AI｜Agent与应用]
 
-AI Agent => AI｜Agent与应用
+AI Agent
 AI智能体
 智能体
 Agentic
 Agentic AI
 Agentic Workflow
+Agent Workflow
+Multi-Agent
+多智能体
 MCP
 Model Context Protocol
 RAG
+Retrieval Augmented Generation
 Context Engineering
 Computer Use
 Tool Use
+Tool Calling
 Function Calling
 AI Coding
 Coding Agent
 Code Agent
+Software Agent
 Vibe Coding
 AI编程
 AI搜索
 AI浏览器
 AI助手
+AI工作流
+Workflow Automation
+Agent Framework
 @20
+
+
+[AI｜模型能力与基础设施]
+
+Context Window
+上下文窗口
+长上下文
+Long Context
+推理能力
+Reasoning
+Inference
+模型推理
+推理成本
+Inference Cost
+Token Cost
+Token价格
+模型训练
+Model Training
+预训练
+Pretraining
+Post-training
+后训练
+Fine-tuning
+微调
+蒸馏
+Distillation
+量化
+Quantization
+MoE
+Mixture of Experts
+模型压缩
+推理加速
+模型部署
+Model Deployment
+Serving
+模型性能
+模型评测
+Benchmark
+上下文工程
+Context Engineering
+@15
 
 
 # ===============================================================
 # 2. 游戏设计 / 关卡设计
 # ===============================================================
 
-关卡设计 => 游戏｜关卡设计
+
+[游戏｜关卡设计]
+
+关卡设计
 Level Design
 Level Designer
 Level Flow
@@ -156,11 +214,19 @@ Worldbuilding
 路径设计
 视觉引导
 玩家引导
+Navigation
+Wayfinding
 地标设计
 Landmark
 Weenie
+Critical Path
+关键路径
+Optional Path
+可选路径
 捷径设计
+Shortcut
 回环设计
+Loop
 探索设计
 战斗空间
 Combat Space
@@ -176,57 +242,114 @@ Traversal
 Environmental Storytelling
 空间叙事
 关卡叙事
+Level Narrative
+Dungeon Design
+Hub Design
+开放世界设计
+Open World Design
+Metroidvania
 @25
 
 
-# ---------------------------------------------------------------
-# 综合游戏设计
-# ---------------------------------------------------------------
+[游戏｜游戏设计]
 
-游戏设计 => 游戏｜游戏设计
+游戏设计
 Game Design
 Gameplay Design
 玩法设计
 机制设计
 Game Mechanic
 Gameplay Mechanic
+游戏机制
 战斗设计
 Combat Design
 系统设计
-游戏系统设计
 Systems Design
+游戏系统设计
 数值设计
+Numerical Design
 经济系统设计
 Game Economy
+Economy Design
 成长系统
 Progression Design
 Progression System
 技能系统
+Skill System
 Build设计
+Build System
 职业设计
 职业系统
+Class Design
 Tutorial Design
 教学设计
 难度曲线
 Difficulty Curve
 玩家体验
 Player Experience
+Player Psychology
+玩家心理
 Core Loop
 Game Loop
 核心循环
+Feedback Loop
+反馈循环
+Risk Reward
+风险收益
+Retention Design
+留存设计
 Postmortem
 游戏复盘
 设计复盘
+Game Analysis
+游戏拆解
+机制拆解
 GDC
 Game Developers Conference
 @20
+
+
+[游戏｜叙事与体验]
+
+Narrative Design
+叙事设计
+Game Narrative
+游戏叙事
+Environmental Narrative
+环境叙事
+Storytelling
+Story Design
+剧情设计
+Quest Design
+任务设计
+Immersion
+沉浸感
+Pacing
+节奏设计
+Game Feel
+游戏手感
+Player Guidance
+玩家引导
+UX Design
+游戏UX
+User Experience
+可读性
+Readability
+Affordance
+可供性
+Feedback Design
+反馈设计
+@15
 
 
 # ===============================================================
 # 3. 游戏行业 / 商业 / 市场
 # ===============================================================
 
-游戏行业 => 游戏｜产业与商业
+
+[游戏｜产业与商业]
+
+游戏行业
 游戏产业
 游戏市场
 游戏公司
@@ -242,9 +365,11 @@ Game Developers Conference
 国产游戏
 游戏出海
 海外发行
+全球发行
 游戏商业化
 游戏付费
 游戏经济
+Monetization
 LiveOps
 Live Service
 F2P
@@ -262,21 +387,25 @@ Steam新品节
 Concurrent Players
 玩家留存
 留存率
+Retention
 用户获取
 User Acquisition
+UA
 游戏裁员
 工作室关闭
 游戏并购
 游戏收购
 游戏投资
+游戏融资
+游戏市场规模
+游戏用户规模
+游戏行业报告
 @25
 
 
-# ---------------------------------------------------------------
-# 主要游戏公司 / 平台
-# ---------------------------------------------------------------
+[游戏｜公司与平台]
 
-Nintendo => 游戏｜公司与平台
+Nintendo
 任天堂
 PlayStation
 Sony Interactive Entertainment
@@ -286,11 +415,14 @@ Microsoft Gaming
 Valve
 Steam
 Epic Games
+Epic
 Ubisoft
+育碧
 Electronic Arts
 /\bEA\b/
 Take-Two
 Rockstar Games
+Rockstar
 Capcom
 卡普空
 Square Enix
@@ -313,17 +445,67 @@ HoYoverse
 TapTap
 Game Science
 游戏科学
+完美世界游戏
+巨人网络
+西山居
+库洛游戏
 @25
 
 
+[游戏｜发行与市场表现]
+
+Steam
+SteamDB
+Steam Charts
+Steam销量
+愿望单
+Wishlist
+Discoverability
+游戏发行
+发行策略
+Publisher
+Publishing
+发行商
+游戏营销
+Marketing
+游戏推广
+User Acquisition
+用户获取
+CPI
+ROAS
+LTV
+ARPU
+ARPPU
+流水
+营收
+Revenue
+销量
+Sales
+首发销量
+Concurrent Players
+Peak Players
+同时在线
+在线峰值
+DAU
+MAU
+留存率
+Retention
+GameDiscoverCo
+市场表现
+市场数据
+@20
+
+
 # ===============================================================
-# 4. 玩家社区 / 玩家体验 / 游戏口碑
+# 4. 玩家社区 / 玩家行为 / 游戏口碑
 # ===============================================================
 
-玩家反馈 => 游戏｜玩家社区
+
+[游戏｜玩家社区]
+
+玩家反馈
 玩家评价
 玩家口碑
-玩家反馈
 社区反馈
 玩家讨论
 玩家体验
@@ -349,6 +531,45 @@ Peak Players
 玩家留存
 玩家行为
 玩家争议
+玩家社区
+社区讨论
+Reddit
+TapTap
+小黑盒
+机核
+Gcores
+@15
+
+
+[游戏｜版本与玩家体验变化]
+
+版本更新
+游戏更新
+大型更新
+Major Update
+Patch
+Patch Notes
+补丁
+版本调整
+平衡调整
+Balance Update
+Balance Patch
+数值调整
+重做
+Rework
+机制调整
+玩法调整
+地图更新
+新地图
+关卡更新
+赛季更新
+Season Update
+玩家反馈
+社区反响
+玩家流失
+在线人数下降
+在线人数增长
+留存变化
 @15
 
 
@@ -356,7 +577,10 @@ Peak Players
 # 5. 国际政治 / 国际关系 / 地缘政治
 # ===============================================================
 
-国际关系 => 国际｜国际关系
+
+[国际｜国际关系]
+
+国际关系
 中美关系
 美中关系
 中欧关系
@@ -364,7 +588,8 @@ Peak Players
 中俄关系
 美欧关系
 美俄关系
-国际关系
+中韩关系
+美日关系
 地缘政治
 Geopolitics
 外交关系
@@ -398,11 +623,9 @@ Indo-Pacific
 @20
 
 
-# ---------------------------------------------------------------
-# 国际重大政策与事件
-# ---------------------------------------------------------------
+[国际｜重大事件与政策]
 
-制裁 => 国际｜重大事件与政策
+制裁
 国际制裁
 经济制裁
 科技制裁
@@ -431,14 +654,51 @@ Export Control
 供应链安全
 关键矿产
 关键资源
+外交危机
+领土争端
+国际协议
+双边协议
+多边协议
 @20
+
+
+[国际｜科技与产业竞争]
+
+科技竞争
+技术竞争
+AI竞争
+人工智能竞争
+芯片竞争
+半导体竞争
+出口限制
+芯片出口
+GPU出口
+技术封锁
+科技封锁
+实体清单
+Entity List
+供应链
+Supply Chain
+关键技术
+关键矿产
+稀土
+半导体设备
+AI芯片
+算力限制
+数据跨境
+科技安全
+产业安全
+@15
 
 
 # ===============================================================
 # 6. 中国政务 / 政策
 # ===============================================================
 
-国务院 => 政务｜中央政策
+
+[政务｜中央政策]
+
+国务院
 国务院常务会议
 国家发展改革委
 国家发改委
@@ -463,14 +723,18 @@ Export Control
 条例
 法规
 新规
+指导意见
+实施意见
+管理办法
+发展规划
+五年规划
+政府工作报告
 @20
 
 
-# ---------------------------------------------------------------
-# AI / 游戏 / 科技相关政策
-# ---------------------------------------------------------------
+[政务｜科技与游戏政策]
 
-人工智能政策 => 政务｜科技与游戏政策
+人工智能政策
 AI政策
 AI监管
 AI治理
@@ -494,21 +758,22 @@ AI治理
 网络游戏管理
 出版管理
 文化产业政策
+互联网监管
+网络内容治理
 @20
 
 
-# ---------------------------------------------------------------
-# 社会与经济重要政策
-# ---------------------------------------------------------------
+[政务｜社会与经济政策]
 
-就业政策 => 政务｜社会与经济政策
-就业
 就业政策
+就业
 青年就业
+高校毕业生就业
 社会保障
 社保
 养老
 医疗保障
+医保
 房地产政策
 住房政策
 教育政策
@@ -521,14 +786,23 @@ AI治理
 扩大内需
 民营经济
 营商环境
+住房保障
+公共服务
+社会保险
+退休政策
+最低工资
+工资收入
 @15
 
 
 # ===============================================================
-# 7. 半导体 / 科技产业
+# 7. 科技 / 半导体 / 数字产业
 # ===============================================================
 
-半导体 => 科技｜半导体与算力
+
+[科技｜半导体与算力]
+
+半导体
 芯片
 Chip
 GPU
@@ -557,20 +831,58 @@ Qualcomm
 晶圆代工
 芯片制造
 芯片出口
+晶圆厂
+Fab
+Foundry
+Chiplet
+CoWoS
+先进封装
+算力中心
+数据中心
+Data Center
 @20
 
 
-# ---------------------------------------------------------------
-# 新兴科技
-# ---------------------------------------------------------------
+[科技｜互联网与软件平台]
 
-具身智能 => 科技｜新兴技术
-机器人
-Humanoid Robot
-人形机器人
+Microsoft
+微软
+Google
+谷歌
+Apple
+苹果
+Meta
+Amazon
+AWS
+Azure
+Google Cloud
+云计算
+Cloud Computing
+开发者工具
+Developer Tools
+开源软件
+Open Source
+GitHub
+软件开发
+Software Development
+开发平台
+操作系统
+浏览器
+互联网平台
+数字平台
+@15
+
+
+[科技｜新兴技术]
+
 具身智能
 Embodied AI
+机器人
+Robot
+Humanoid Robot
+人形机器人
 自动驾驶
+Autonomous Driving
 空间计算
 Spatial Computing
 虚拟现实
@@ -583,15 +895,24 @@ Mixed Reality
 /\bAR\b/
 /\bXR\b/
 脑机接口
+Brain Computer Interface
 量子计算
+Quantum Computing
+数字孪生
+Digital Twin
+3D生成
+生成式3D
 @15
 
 
 # ===============================================================
-# 8. 宏观经济
+# 8. 宏观经济 / 产业环境
 # ===============================================================
 
-GDP => 宏观｜经济数据
+
+[宏观｜经济数据]
+
+GDP
 国内生产总值
 CPI
 PPI
@@ -601,6 +922,7 @@ PMI
 就业数据
 失业率
 城镇调查失业率
+青年失业率
 社会消费品零售总额
 社会消费品零售
 社零
@@ -616,14 +938,17 @@ PMI
 进出口
 贸易顺差
 贸易逆差
+制造业PMI
+服务业PMI
+居民收入
+居民消费
+消费增长
 @15
 
 
-# ---------------------------------------------------------------
-# 主要央行 / 货币政策
-# ---------------------------------------------------------------
+[宏观｜货币政策]
 
-美联储 => 宏观｜货币政策
+美联储
 Federal Reserve
 /\bFed\b/
 欧洲央行
@@ -631,6 +956,9 @@ European Central Bank
 /\bECB\b/
 中国人民银行
 央行
+日本央行
+Bank of Japan
+/\bBOJ\b/
 货币政策
 降息
 加息
@@ -639,5 +967,41 @@ European Central Bank
 基准利率
 政策利率
 通胀目标
+利率
+Interest Rate
+流动性
+量化宽松
+Quantitative Easing
+QT
+缩表
+@15
+
+
+[宏观｜科技与游戏产业环境]
+
+科技行业就业
+互联网行业就业
+游戏行业就业
+AI行业就业
+科技裁员
+互联网裁员
+游戏裁员
+AI裁员
+科技公司裁员
+互联网公司裁员
+招聘市场
+岗位需求
+人才需求
+薪资变化
+融资环境
+科技融资
+游戏融资
+AI融资
+风险投资
+Venture Capital
+消费变化
+娱乐消费
+游戏消费
+数字娱乐
 @15
 ```
